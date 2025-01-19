@@ -137,14 +137,20 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
-
+doc_events = {
+    "Terms and Conditions": {
+        "validate": "mce.custom.terms_and_conditions.terms_and_conditions.validate"
+    }, 
+    "Purchase Order": {
+        "validate": "mce.custom.purchase_order.purchase_order.validate", 
+        "on_submit" : "mce.custom.purchase_order.purchase_order.on_submit",
+    }
+}
+doctype_js = {
+    "Purchase Order": "custom/purchase_order/purchase_order.js",
+    "Blanket Order": "custom/blanket_order/blanket_order.js",
+    "Terms and Conditions" : "custom/terms_and_conditions/terms_and_conditions.js"
+ }
 # Scheduled Tasks
 # ---------------
 
@@ -242,3 +248,25 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+fixtures = [
+    {"dt": "Custom Field", "filters": [
+        [
+            "name", "in", [
+                "Terms and Conditions-custom_section_break_jc7iz",
+                "Terms and Conditions-custom_accounts",
+                "Terms and Conditions-custom_column_break_xpab8",
+                "Terms and Conditions-custom_has_accounting_effect",
+                "Terms and Conditions-custom_blanket_order_term",
+                "Blanket Order-custom_terms_details",
+                "Blanket Order-custom_term", 
+                "Purchase Order-custom_blanket_order",
+                "Purchase Order-custom_total_debit",
+                "Purchase Order-custom_column_break_z6s93",
+                "Purchase Order-custom_total_credit", 
+                "Purchase Order-custom_section_break_luyq9", 
+                "Purchase Order-custom_section_break_9d9gg",
+                "Purchase Order-custom_term"
+            ]
+        ]
+    ]}
+]

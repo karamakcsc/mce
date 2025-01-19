@@ -1,0 +1,68 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-14 11:30:09.326610",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "terms_and_conditions",
+  "column_break_tnuc",
+  "has_accounting_effect",
+  "section_break_lqyw",
+  "accounts",
+  "editor"
+ ],
+ "fields": [
+  {
+   "fieldname": "terms_and_conditions",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Terms and Conditions",
+   "link_filters": "[[\"Terms and Conditions\",\"buying\",\"=\",1],[\"Terms and Conditions\",\"custom_blanket_order_term\",\"=\",1]]",
+   "options": "Terms and Conditions",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_tnuc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fetch_from": "terms_and_conditions.custom_has_accounting_effect",
+   "fieldname": "has_accounting_effect",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Has Accounting Effect",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_lqyw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "accounts",
+   "fieldtype": "HTML",
+   "label": "Accounts",
+   "options": "{{ doc.editor }}"
+  },
+  {
+   "fieldname": "editor",
+   "fieldtype": "HTML Editor",
+   "hidden": 1,
+   "label": "Editor"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-01-14 11:33:23.764236",
+ "modified_by": "Administrator",
+ "module": "MCE",
+ "name": "Terms Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,94 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:purchase_condition_name",
+ "creation": "2025-01-07 12:15:28.631779",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "purchase_condition_name",
+  "posting_date",
+  "column_break_ixdn",
+  "enable",
+  "has_accounting_reflect",
+  "section_break_elcd",
+  "accounting",
+  "section_break_ipvm",
+  "condition_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "column_break_ixdn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable",
+   "fieldtype": "Check",
+   "label": "Enable"
+  },
+  {
+   "fieldname": "section_break_elcd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.has_accounting_reflect",
+   "fieldname": "accounting",
+   "fieldtype": "Table",
+   "label": "Accounting",
+   "options": "Condition and Infraction Details"
+  },
+  {
+   "fieldname": "section_break_ipvm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "condition_details",
+   "fieldtype": "Text Editor",
+   "in_global_search": 1,
+   "label": "Condition Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_accounting_reflect",
+   "fieldtype": "Check",
+   "label": "Has Accounting Effect"
+  },
+  {
+   "fieldname": "purchase_condition_name",
+   "fieldtype": "Data",
+   "label": "Purchase Condition Name",
+   "unique": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-11 21:01:04.658540",
+ "modified_by": "Administrator",
+ "module": "MCE",
+ "name": "Purchase Condition Entry",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
