@@ -19,3 +19,4 @@ frappe.ui.form.on('Terms Details', {
     }
     
 });
+//
