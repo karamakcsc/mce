@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class InfractionEntry(Document):
+class ConditionDetails(Document):
 	pass

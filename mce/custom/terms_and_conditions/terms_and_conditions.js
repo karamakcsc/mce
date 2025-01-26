@@ -1,4 +1,4 @@
-frappe.ui.form.on("Condition and Infraction Details", {
+frappe.ui.form.on("Condition Details", {
     form_render: function (frm, cdt, cdn) {
         const child_row = locals[cdt][cdn];
         set_autocompletions_for_condition_formula(frm, cdt, cdn, child_row);

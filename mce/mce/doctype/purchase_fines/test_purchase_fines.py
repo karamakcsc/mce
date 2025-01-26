@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestInfractionEntry(FrappeTestCase):
+class TestPurchaseFines(FrappeTestCase):
 	pass

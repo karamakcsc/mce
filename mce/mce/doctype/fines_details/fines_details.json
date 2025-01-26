@@ -1,0 +1,112 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-20 12:14:45.010419",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "purchase_fines",
+  "column_break_xigu",
+  "has_accounting_effect",
+  "section_break_refj",
+  "account",
+  "amount",
+  "column_break_gpvo",
+  "formula_based_criteria",
+  "fines_formula",
+  "section_break_oncg",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_xigu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fetch_from": "purchase_fines.has_accounting_effect",
+   "fieldname": "has_accounting_effect",
+   "fieldtype": "Check",
+   "label": "Has Accounting Effect",
+   "read_only": 1
+  },
+  {
+   "depends_on": "has_accounting_effect",
+   "fieldname": "section_break_refj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "has_accounting_effect",
+   "fetch_from": "purchase_fines.account",
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "label": "Revenue Account",
+   "link_filters": "[[\"Account\",\"is_group\",\"=\",1],[\"Account\",\"account_type\",\"in\",[\"Expense Account\",\"Income Account\",null]]]",
+   "mandatory_depends_on": "has_accounting_effect",
+   "options": "Account",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_gpvo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "has_accounting_effect",
+   "fetch_from": "purchase_fines.formula_based_criteria",
+   "fieldname": "formula_based_criteria",
+   "fieldtype": "Check",
+   "label": "Formula Based Criteria",
+   "read_only": 1
+  },
+  {
+   "depends_on": "formula_based_criteria",
+   "fetch_from": "purchase_fines.fines_formula",
+   "fieldname": "fines_formula",
+   "fieldtype": "Code",
+   "label": "Fines Formula",
+   "mandatory_depends_on": "formula_based_criteria",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_oncg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "terms_and_fines.description",
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description",
+   "read_only": 1
+  },
+  {
+   "fieldname": "purchase_fines",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Purchase Fines",
+   "options": "Purchase Fines",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: doc.has_accounting_effect == 1 && doc.formula_based_criteria ==0 ",
+   "fetch_from": "purchase_fines.amount",
+   "fieldname": "amount",
+   "fieldtype": "Float",
+   "label": "Amount",
+   "mandatory_depends_on": "eval: doc.has_accounting_effect == 1 && doc.formula_based_criteria ==0 ",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-01-21 14:09:00.130495",
+ "modified_by": "Administrator",
+ "module": "MCE",
+ "name": "Fines Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

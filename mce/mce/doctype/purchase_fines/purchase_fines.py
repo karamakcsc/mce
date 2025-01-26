@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class PurchaseConditionEntry(Document):
+class PurchaseFines(Document):
 	pass

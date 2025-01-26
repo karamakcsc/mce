@@ -4,7 +4,6 @@ import json
 import unicodedata
 
 
-
 @frappe.whitelist()
 def get_blanket_order_terms(bo_name): 
     if bo_name: 

@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class ItemAgreement(Document):
+class FinesDetails(Document):
 	pass

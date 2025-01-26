@@ -60,7 +60,7 @@
  "modified": "2025-01-12 12:11:07.628606",
  "modified_by": "Administrator",
  "module": "MCE",
- "name": "Condition and Infraction Details",
+ "name": "Condition Details",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",

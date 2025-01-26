@@ -144,10 +144,16 @@ doc_events = {
     "Purchase Order": {
         "validate": "mce.custom.purchase_order.purchase_order.validate", 
         "on_submit" : "mce.custom.purchase_order.purchase_order.on_submit",
+    }, 
+    "Purchase Invoice":{
+        "validate": "mce.custom.purchase_invoice.purchase_invoice.validate", 
+        "on_submit" : "mce.custom.purchase_invoice.purchase_invoice.on_submit",
     }
 }
 doctype_js = {
     "Purchase Order": "custom/purchase_order/purchase_order.js",
+    "Purchase Invoice": "custom/purchase_invoice/purchase_invoice.js",
+    "Purchase Receipt": "custom/purchase_receipt/purchase_receipt.js",
     "Blanket Order": "custom/blanket_order/blanket_order.js",
     "Terms and Conditions" : "custom/terms_and_conditions/terms_and_conditions.js"
  }
@@ -259,13 +265,23 @@ fixtures = [
                 "Terms and Conditions-custom_blanket_order_term",
                 "Blanket Order-custom_terms_details",
                 "Blanket Order-custom_term", 
+                "Blanket Order-custom_section_break_p9hva", 
+                "Blanket Order-custom_fines",
                 "Purchase Order-custom_blanket_order",
                 "Purchase Order-custom_total_debit",
                 "Purchase Order-custom_column_break_z6s93",
                 "Purchase Order-custom_total_credit", 
                 "Purchase Order-custom_section_break_luyq9", 
                 "Purchase Order-custom_section_break_9d9gg",
-                "Purchase Order-custom_term"
+                "Purchase Order-custom_term", 
+                "Purchase Receipt-custom_section_break_nmslc",
+                "Purchase Receipt-custom_fines",
+                "Purchase Invoice-custom_section_break_s76tb",
+                "Purchase Invoice-custom_fines",
+                "Purchase Invoice-custom_section_break_kxewz",
+                "Purchase Invoice-custom_column_break_ckoy8",
+                "Purchase Invoice-custom_column_break_0ax76",
+                "Purchase Invoice-custom_total_fines"
             ]
         ]
     ]}
