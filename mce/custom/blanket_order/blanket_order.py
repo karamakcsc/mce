@@ -41,3 +41,14 @@ def get_terms_details(term):
                     html += f"              <td>{r.value}</td>"
         return style+html
         
+@frappe.whitelist()
+def get_party_items(supp):
+    items_list = frappe.db.sql("""
+                SELECT based_on_value 
+                FROM `tabParty Specific Item` 
+                WHERE party_type = 'Supplier' 
+                    AND party = %s 
+                    AND restrict_based_on = 'Item'
+            """,(supp,), as_dict=True)
+    
+    return [item['based_on_value'] for item in items_list]

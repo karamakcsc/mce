@@ -2,6 +2,7 @@ import frappe
 from frappe import _
 import json
 import unicodedata
+from datetime import datetime
 
 
 @frappe.whitelist()
@@ -22,6 +23,7 @@ def debit_and_credit_totals_whitelist(self):
 
 def validate(self, method):
     debit_and_credit_totals(self)
+    validate_date(self)
     
     
 def on_submit(self , method): 
@@ -110,4 +112,20 @@ def create_jv(self):
             alert=True,
             indicator='green'
         )
+        
+def validate_date(self):
+    if self.custom_blanket_order:
+        bo_doc = frappe.get_doc("Blanket Order", self.custom_blanket_order)
+        if self.transaction_date and self.schedule_date:
+            # bo_from_date = datetime.strptime(bo_doc.from_date, "%Y-%m-%d").date()
+            # bo_to_date = datetime.strptime(bo_doc.to_date, "%Y-%m-%d").date()
+
+            transaction_date = datetime.strptime(self.transaction_date, "%Y-%m-%d").date()
+            schedule_date = datetime.strptime(self.schedule_date, "%Y-%m-%d").date()
+
+            if not (bo_doc.from_date <= transaction_date <= bo_doc.to_date):
+                frappe.throw("Transaction date must be between the Blanket Order dates")
+
+            if not (bo_doc.from_date <= schedule_date <= bo_doc.to_date):
+                frappe.throw("Schedule date must be between the Blanket Order dates")
             
